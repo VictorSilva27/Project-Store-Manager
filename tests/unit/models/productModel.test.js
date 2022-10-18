@@ -20,4 +20,10 @@ describe('Testando unidade do model de products', function () {
     const result = await productModel.getByIdProductModel(2);
     expect(result).to.be.deep.eq(mockProduct[1]);
   });
+  it('Realizando INSERT do model', async function () {
+    sinon.stub(connection, 'execute').resolves([{ id: 4, name: 'Victor'}]);
+    sinon.stub(productModel, 'getByIdProductModel').resolves({ id: 4, name: 'Victor'});
+    await productModel.addProductModel('Victor');
+    // await productModel.getByIdProductModel(4);
+  });
 })

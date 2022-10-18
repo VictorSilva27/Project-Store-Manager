@@ -1,5 +1,4 @@
 const express = require('express');
-// const connection = require('../models/connection');
 const {
   getAllProductController,
   getByIdProductController,

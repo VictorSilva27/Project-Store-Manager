@@ -1,32 +1,60 @@
-const chai = require('chai');
 const sinon = require('sinon');
+const chai = require('chai');
 
 const { expect } = chai;
-
-const app = require('../../../src/app');
 const connection = require('../../../src/models/connection');
-const productController = require('../../../src/controllers/productController');
+const { getByIdProductController,
+  getAllProductController,
+  addProductByName } = require('../../../src/controllers/productController');
+const productService = require('../../../src/services/productService');
 
 const mockProduct = require('../mock/products.mock');
 
 describe('Teste de controllers do products', function () {
-
-  it('Testando para pegar todas as informações da tabela products', async function () {
+  describe('getAllProductController', function () {
+    it('Testando para pegar todas as informações da tabela products', async function () {
     const res = {};
     res.status = sinon.stub().returns(res);
     res.json = sinon.stub().returns();
     sinon.stub(connection, 'execute').resolves([mockProduct]);
 
-    await productController.getAllProductController({}, res);
+    await getAllProductController({}, res);
+    });
+    
+}); 
+
+  describe('getByIdProductController', function () { 
+  
+    it('Testando para pegar todas as informações de um produto', async function () {
+      const req = {
+        params: { id: 2}
+      };
+      const res = {};
+      res.status = sinon.stub().returns(res);
+      res.json = sinon.stub().returns();
+
+      sinon.stub(productService, 'getByIdProductService').resolves(
+        {
+          status: 200,
+          response: mockProduct[1],
+        }
+      );
+      await getByIdProductController(req, res);
+  });
   });
 
-  // it('Testando para pegar todas as informações de um produto', async function () {
-  //   const response = await sinon.requests;
-  //   await productController.getByIdProductController({params: { id: 2 }}, {});
-  //   console.log(result);
-  //   expect(response.status).to.be.equal(200);
-  //   expect(response.json).to.be.equal(mockData[1]);
-  // });
+  describe('addProductByName', function () {
+
+    it('Cadastrar produto com name', async function () {
+      const req = {};
+      const res = {};
+      res.status = sinon.stub().returns(res);
+      res.json = sinon.stub().returns();
+
+      sinon.stub(productService, 'addProductService').resolves({});
+      await addProductByName(req, res);
+    });
+  });
 
   afterEach(() => {
     sinon.restore();

@@ -19,7 +19,6 @@ const addProductModel = async (nameProduct) => {
     [nameProduct],
   );
   const result = await getByIdProductModel(insertId);
-  console.log(result);
   return result;
 };
 

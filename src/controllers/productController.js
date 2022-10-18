@@ -1,23 +1,20 @@
 const productService = require('../services/productService');
-const productModel = require('../models/productModel');
 
 const getAllProductController = async (_req, res) => {
-  const getProduct = await productModel.getAllProductModel();
-  res.status(200).json(getProduct);
+  const { status, response } = await productService.getAllProductService();
+  return res.status(status).json(response);
 };
 
 const getByIdProductController = async (req, res) => {
   const productId = Number(req.params.id);
-  const findByIdProduct = await productService.getByIdProductService(productId);
-  const product = findByIdProduct.find((productItem) => productItem.id === productId);
-  if (!product) return res.status(404).json({ message: 'Product not found' });
-  res.status(200).json(product);
+  const { status, response } = await productService.getByIdProductService(productId);
+  return res.status(status).json(response);
 };
 
 const addProductByName = async (req, res) => {
-  const { name } = req.body;
-  const addProduct = await productService.addProductService(name);
-  res.status(201).json(...addProduct);
+  // const { name } = req.body;
+  const { status, response } = await productService.addProductService(req);
+  return res.status(status).json(response);
 };
 
 module.exports = {
