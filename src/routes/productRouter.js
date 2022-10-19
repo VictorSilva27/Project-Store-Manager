@@ -4,6 +4,7 @@ const {
   getByIdProductController,
   addProductByName,
   putProductController,
+  deleteProductController,
 } = require('../controllers/productController');
 
 const { validateAddProduct, validateIdProduct } = require('../middlewares/validateProducts');
@@ -17,5 +18,7 @@ router.post('/', validateAddProduct, addProductByName);
 router.put('/:id', validateAddProduct, validateIdProduct, putProductController);
 
 router.get('/:id', getByIdProductController);
+
+router.delete('/:id', validateIdProduct, deleteProductController);
 
 module.exports = router;

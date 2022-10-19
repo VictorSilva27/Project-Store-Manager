@@ -28,9 +28,16 @@ const putProductService = async (req) => {
   return { status: 200, response: result };
 };
 
+const deleteProductService = async (req) => {
+  const idProduct = req.params.id;
+  await productModel.deleteProductModel(idProduct);
+  return { status: 204 };
+};
+
 module.exports = {
   getAllProductService,
   getByIdProductService,
   addProductService,
   putProductService,
+  deleteProductService,
 };

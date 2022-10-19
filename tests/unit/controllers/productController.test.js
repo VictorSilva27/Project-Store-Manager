@@ -6,7 +6,9 @@ const connection = require('../../../src/models/connection');
 const { getByIdProductController,
   getAllProductController,
   addProductByName,
-putProductController} = require('../../../src/controllers/productController');
+  putProductController,
+  deleteProductController,
+} = require('../../../src/controllers/productController');
 const productService = require('../../../src/services/productService');
 
 const mockProduct = require('../mock/products.mock');
@@ -67,6 +69,18 @@ describe('Teste de controllers da rota /products', function () {
 
         sinon.stub(productService, 'putProductService').resolves({});
         await putProductController(req, res);
+      });
+  });
+  describe('deleteProductController', function () {
+
+      it('Deletar produto pelo id', async function () {
+        const req = {};
+        const res = {};
+        res.status = sinon.stub().returns(res);
+        res.json = sinon.stub().returns();
+
+        sinon.stub(productService, 'deleteProductService').resolves({});
+        await deleteProductController(req, res);
       });
   });
 
