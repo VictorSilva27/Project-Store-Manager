@@ -5,7 +5,8 @@ const { expect } = chai;
 const connection = require('../../../src/models/connection');
 const { getByIdProductController,
   getAllProductController,
-  addProductByName } = require('../../../src/controllers/productController');
+  addProductByName,
+putProductController} = require('../../../src/controllers/productController');
 const productService = require('../../../src/services/productService');
 
 const mockProduct = require('../mock/products.mock');
@@ -56,8 +57,21 @@ describe('Teste de controllers da rota /products', function () {
     });
   });
 
+    describe('putProductController', function () {
+
+      it('Atualizar nome de produto com o id', async function () {
+        const req = {};
+        const res = {};
+        res.status = sinon.stub().returns(res);
+        res.json = sinon.stub().returns();
+
+        sinon.stub(productService, 'putProductService').resolves({});
+        await putProductController(req, res);
+      });
+  });
+
   afterEach(() => {
     sinon.restore();
   });
 
-});
+  });

@@ -21,8 +21,16 @@ const addProductService = async (req) => {
   return { status: 201, response: result };
 };
 
+const putProductService = async (req) => {
+  const { name } = req.body;
+  const idProduct = req.params.id;
+  const [result] = await productModel.putProductModel(idProduct, name);
+  return { status: 200, response: result };
+};
+
 module.exports = {
   getAllProductService,
   getByIdProductService,
   addProductService,
+  putProductService,
 };

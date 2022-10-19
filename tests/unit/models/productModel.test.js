@@ -25,4 +25,9 @@ describe('Testando unidade do model de products', function () {
     sinon.stub(productModel, 'getByIdProductModel').resolves({ id: 4, name: 'Victor' });
     await productModel.addProductModel('Victor');
   });
+  it('Realizando UPDATE na tabela products', async function () {
+    sinon.stub(connection, 'execute').resolves([{ id: 2, name: 'Panela de Kripton' }]);
+    sinon.stub(productModel, 'getByIdProductModel').resolves({ id: 2, name: 'Panela de Kripton' });
+    await productModel.putProductModel(2, 'Panela de Kripton');
+  });
 });

@@ -27,6 +27,13 @@ describe('Testando o Service products', function () {
       await productService.addProductService({ body: {name: 'Victor' } });
     });
   });
+  describe('addProductService', function () {
+    it('Adicionando um novo Produto', async function () {
+      sinon.stub(productModel, 'putProductModel').resolves([{ id: 2, name: 'Panela de Kripton' }]);
+      const mockBody = { body: { name: 'Panela de Kripton' }, params: { id: 2 } }
+      await productService.putProductService(mockBody);
+    });
+  });
   afterEach(() => {
     sinon.restore();
   });
