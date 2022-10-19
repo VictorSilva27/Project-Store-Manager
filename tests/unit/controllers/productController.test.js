@@ -10,7 +10,7 @@ const productService = require('../../../src/services/productService');
 
 const mockProduct = require('../mock/products.mock');
 
-describe('Teste de controllers do products', function () {
+describe('Teste de controllers da rota /products', function () {
   describe('getAllProductController', function () {
     it('Testando para pegar todas as informações da tabela products', async function () {
     const res = {};

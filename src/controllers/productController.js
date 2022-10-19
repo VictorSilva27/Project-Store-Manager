@@ -12,7 +12,6 @@ const getByIdProductController = async (req, res) => {
 };
 
 const addProductByName = async (req, res) => {
-  // const { name } = req.body;
   const { status, response } = await productService.addProductService(req);
   return res.status(status).json(response);
 };
