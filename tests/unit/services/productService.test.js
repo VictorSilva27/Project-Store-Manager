@@ -46,6 +46,13 @@ describe('Testando o Service products', function () {
     });
   });
 
+  describe('getByNameProductService', function () {
+    it('Pesquisando um Produto pelo nome', async function () {
+      sinon.stub(productModel, 'getByNameProductModel').resolves([mockProduct[1]]);
+      await productService.getByNameProductService('Traje');
+    });
+  });
+
   afterEach(() => {
     sinon.restore();
   });

@@ -8,6 +8,7 @@ const { getByIdProductController,
   addProductByName,
   putProductController,
   deleteProductController,
+  getByNameProductController,
 } = require('../../../src/controllers/productController');
 const productService = require('../../../src/services/productService');
 
@@ -81,6 +82,27 @@ describe('Teste de controllers da rota /products', function () {
 
         sinon.stub(productService, 'deleteProductService').resolves({});
         await deleteProductController(req, res);
+      });
+  });
+  describe('getByNameProductController', function () {
+
+      it('Pesquisando um produto pelo nome válido', async function () {
+        const req = { query: {q: 'Escudo'} };
+        const res = {};
+        res.status = sinon.stub().returns(res);
+        res.json = sinon.stub().returns();
+
+        sinon.stub(productService, 'getByNameProductService').resolves(mockProduct[2]);
+        await getByNameProductController(req, res);
+      });
+      it('Pesquisando um produto pelo nome vázio', async function () {
+        const req = { query: {q: ''} };
+        const res = {};
+        res.status = sinon.stub().returns(res);
+        res.json = sinon.stub().returns();
+
+        sinon.stub(productService, 'getAllProductService').resolves(mockProduct);
+        await getByNameProductController(req, res);
       });
   });
 

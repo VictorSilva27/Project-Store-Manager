@@ -49,4 +49,10 @@ describe('Testando unidade do model de products', function () {
       await productModel.deleteProductModel(2);
     });
   });
+  describe('getByNameProductModel', function () {
+    it('Pesquisando produto pelo name', async function () {
+      sinon.stub(connection, 'execute').resolves([mockProduct[1]]);
+      await productModel.getByNameProductModel('Traje');
+    });
+  });
 });

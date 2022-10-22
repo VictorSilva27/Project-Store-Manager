@@ -34,10 +34,16 @@ const deleteProductService = async (req) => {
   return { status: 204 };
 };
 
+const getByNameProductService = async (query) => {
+  const result = await productModel.getByNameProductModel(query);
+  return { status: 200, response: result };
+};
+
 module.exports = {
   getAllProductService,
   getByIdProductService,
   addProductService,
   putProductService,
   deleteProductService,
+  getByNameProductService,
 };

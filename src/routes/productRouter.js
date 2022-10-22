@@ -5,6 +5,7 @@ const {
   addProductByName,
   putProductController,
   deleteProductController,
+  getByNameProductController,
 } = require('../controllers/productController');
 
 const { validateAddProduct, validateIdProduct } = require('../middlewares/validateProducts');
@@ -12,6 +13,7 @@ const { validateAddProduct, validateIdProduct } = require('../middlewares/valida
 const router = express.Router();
 
 router.get('/', getAllProductController);
+router.get('/search', getByNameProductController);
 
 router.post('/', validateAddProduct, addProductByName);
 
