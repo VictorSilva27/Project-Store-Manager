@@ -15,6 +15,7 @@ describe('Testando o Service products', function () {
       expect(result.response).to.be.eq(mockAllSales);
     });
   });
+
   describe('getByIdSalesService', function () {
     it('Buscando um venda pelo sale_id correto', async function () {
       sinon.stub(salesModel, 'getByIdSalesModel').resolves(mockByIdSales[1]);
@@ -25,6 +26,19 @@ describe('Testando o Service products', function () {
     it('Buscando um venda pelo sale_id errado', async function () {
       sinon.stub(salesModel, 'getByIdSalesModel').resolves([]);
       await salesService.getByIdSalesService(7);
+    });
+  });
+
+  describe('deleteSalesService', function () {
+    it('deletando uma venda com id valido', async function () {
+      sinon.stub(salesModel, 'getByIdSalesModel').resolves(mockByIdSales[1]);
+      sinon.stub(salesModel, 'deleteSalesModel').resolves();
+      await salesService.deleteSalesService(2);
+    });
+    it('deletando uma venda com id invalido', async function () {
+      sinon.stub(salesModel, 'getByIdSalesModel').resolves([]);
+      sinon.stub(salesModel, 'deleteSalesModel').resolves();
+      await salesService.deleteSalesService(7);
     });
   });
   afterEach(() => {

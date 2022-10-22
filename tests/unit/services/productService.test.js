@@ -38,8 +38,8 @@ describe('Testando o Service products', function () {
     });
   });
 
-  describe('addProductService', function () {
-    it('Adicionando um novo Produto', async function () {
+  describe('deleteProductService', function () {
+    it('Deletando um Produto', async function () {
       sinon.stub(productModel, 'deleteProductModel').resolves([]);
       const mockBody = { params: { id: 2 } }
       await productService.deleteProductService(mockBody);

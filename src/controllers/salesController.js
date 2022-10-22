@@ -11,4 +11,14 @@ const getByIdSalesController = async (req, res) => {
   return res.status(status).json(response);
 };
 
-module.exports = { getByIdSalesController, getAllSalesController };
+const deleteSalesController = async (req, res) => {
+  const saleId = (+req.params.id);
+  const { status, response } = await salesService.deleteSalesService(saleId);
+  return res.status(status).json(response);
+};
+
+module.exports = {
+  getByIdSalesController,
+  getAllSalesController,
+  deleteSalesController,
+};

@@ -10,7 +10,7 @@ const {mockAllSales, mockByIdSales} = require('../mock/sales.mock');
 
 describe('Teste de controllers da rota /sales', function () {
   describe('getAllSalesController', function () {
-    it('Testando para pegar todas as informações da tabela products', async function () {
+    it('Testando para pegar todas as informações da tabela sales', async function () {
       const res = {};
       res.status = sinon.stub().returns(res);
       res.json = sinon.stub().returns();
@@ -23,7 +23,7 @@ describe('Teste de controllers da rota /sales', function () {
 
   describe('getByIdSalesController', function () {
 
-    it('Testando para pegar todas as informações de um produto', async function () {
+    it('Testando para pegar todas as informações de uma venda', async function () {
       const req = {
         params: { id: 2 }
       };
@@ -38,6 +38,25 @@ describe('Teste de controllers da rota /sales', function () {
         }
       );
       await salesController.getByIdSalesController(req, res);
+    });
+  });
+
+  describe('deleteSalesController', function () {
+
+    it('Deletando uma venda com ID correto', async function () {
+      const req = {
+        params: { id: 2 }
+      };
+      const res = {};
+      res.status = sinon.stub().returns(res);
+      res.json = sinon.stub().returns();
+
+      sinon.stub(salesService, 'deleteSalesService').resolves(
+        {
+          status: 204,
+        }
+      );
+      await salesController.deleteSalesController(req, res);
     });
   });
   afterEach(() => {

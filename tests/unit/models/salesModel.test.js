@@ -11,14 +11,26 @@ describe('Testando unidade do model de products', function () {
     sinon.restore();
   });
 
-  it('Realizando SELECT getAllSalesModel do model', async function () {
-    sinon.stub(connection, 'execute').resolves([mockAllSales])
-    const result = await salesModel.getAllSalesModel();
-    expect(result).to.be.deep.eq(mockAllSales);
+  describe('getAllSalesModel', () => {
+    it('Realizando SELECT getAllSalesModel do model', async function () {
+      sinon.stub(connection, 'execute').resolves([mockAllSales])
+      const result = await salesModel.getAllSalesModel();
+      expect(result).to.be.deep.eq(mockAllSales);
+    });
   });
-  it('Realizando SELECT/WHERE byIdProducts do model', async function () {
-    sinon.stub(connection, 'execute').resolves([mockByIdSales[1]])
-    const result = await salesModel.getByIdSalesModel(2);
-    expect(result).to.be.deep.eq(mockByIdSales[1]);
+
+  describe('getByIdSalesModel', () => {
+    it('Realizando SELECT/WHERE getByIdSalesModel do model', async function () {
+      sinon.stub(connection, 'execute').resolves([mockByIdSales[1]])
+      const result = await salesModel.getByIdSalesModel(2);
+      expect(result).to.be.deep.eq(mockByIdSales[1]);
+    });
+  });
+  
+  describe('deleteSalesModel', () => {
+    it('Deletando uma venda pelo id', async function () {
+      sinon.stub(connection, 'execute').resolves();
+      await salesModel.deleteSalesModel(2);
+    });
   });
 });
