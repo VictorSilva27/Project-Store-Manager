@@ -1,10 +1,23 @@
-# :construction: README em construção ! :construction:
-<!-- Olá, Tryber!
-Esse é apenas um arquivo inicial para o README do seu projeto.
-É essencial que você preencha esse documento por conta própria, ok?
-Não deixe de usar nossas dicas de escrita de README de projetos, e deixe sua criatividade brilhar!
-:warning: IMPORTANTE: você precisa deixar nítido:
-- quais arquivos/pastas foram desenvolvidos por você; 
-- quais arquivos/pastas foram desenvolvidos por outra pessoa estudante;
-- quais arquivos/pastas foram desenvolvidos pela Trybe.
--->
+# Projeto Store Manager
+
+🔰Como iniciar o projeto na sua máquina🔰
+
+- ``` git clone git@github.com:VictorSilva27/Project-Store-Manager.git ``` (Clonar o repositório no local)
+- ``` cd Projeto-TrybeTunes ``` (Entrar no repositório clonado)
+
+🔰Rodando com Docker🔰
+- ``` docker-compose up -d ``` (Instalando as images do NodeJs e MySql)
+
+Em caso de Erro de funcionamendo de Porta, altere as linhas das ports no arquivo ``` docker-compose.yml ```
+- ``` docker exec -it store_manager bash ``` (Entrando no container)
+- ``` npm install ``` (Baixando as dependências do projeto)
+- ``` npm start ``` (Iniciando o projeto)
+
+No seu terminal deve estar aparecendo algo como ``` Escutando na porta 3000 ```
+
+Agora copie e cola o link abaixo, no seu navegador: 
+- ``` http://localhost:3000/products ```
+
+Ou
+
+- ``` http://localhost:3000/sales ```
