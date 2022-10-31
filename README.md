@@ -1,6 +1,6 @@
 # Projeto Store Manager
 
-Neste projeto pude aprender mais sobre as rotas e como a conectar ao banco de dados, onde fiz muitas manipulções de dados e criação de testes
+Nesse projeto pude aprender mais sobre as rotas de um Api, a como manipular suas queries e inserts, foi um bom aprendizado para minhas HardSkills, passei por bastante desafio nesse projeto, mas consegui meus 100% totais. Com ajuda do Sinon e Chai, trabalhei bastante com tests, onde obtive 100% de cobertura das ``` models ```, ``` services ``` e ```controllers```.
 
 ### 🔰Como iniciar o projeto na sua máquina🔰
 
@@ -32,3 +32,8 @@ Ou
 ### 🔰Rodar os teste🔰
 
 - ``` npm run test:mocha ```
+
+![Cobertura de Test](Test-Coverage-Store.png)
+
+### 🔰Nota do Projeto🔰
+![Nota do Projeto Store Manager](storeManager.png)
