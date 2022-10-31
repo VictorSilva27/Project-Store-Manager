@@ -33,4 +33,35 @@ describe('Testando unidade do model de products', function () {
       await salesModel.deleteSalesModel(2);
     });
   });
+
+  describe('postSalesModel', () => {
+    it('Adicionando vendas de produto no banco', async function () {
+      sinon.stub(connection, 'execute').resolves([{ sale_id: 4, date: '2002-02-01 02:01:40' }]);
+      await salesModel.postSalesModel([
+        {
+          productId: 2,
+          quantity: 122
+        },
+        {
+          productId: 1,
+          quantity: 51
+        }
+      ]);
+    });
+  });
+  describe('putSalesModel', () => {
+    it('Atualizando vendas de produto no banco', async function () {
+      sinon.stub(connection, 'execute').resolves();
+      await salesModel.putSalesModel([
+        {
+          productId: 2,
+          quantity: 122
+        },
+        {
+          productId: 1,
+          quantity: 51
+        }
+      ]);
+    });
+  });
 });

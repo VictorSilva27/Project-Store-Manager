@@ -17,8 +17,22 @@ const deleteSalesController = async (req, res) => {
   return res.status(status).json(response);
 };
 
+const postSalesController = async (req, res) => {
+  const arrayBody = req.body;
+  const { status, response } = await salesService.postSalesService(arrayBody);
+  return res.status(status).json(response);
+};
+
+const putSalesController = async (req, res) => {
+  const salesId = Number(req.params.id);
+  const arrayBody = req.body;
+  const { status, response } = await salesService.putSalesService(arrayBody, salesId);
+  return res.status(status).json(response);
+};
 module.exports = {
   getByIdSalesController,
   getAllSalesController,
   deleteSalesController,
+  postSalesController,
+  putSalesController,
 };

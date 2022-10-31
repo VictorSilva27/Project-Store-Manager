@@ -41,6 +41,21 @@ describe('Testando o Service products', function () {
       await salesService.deleteSalesService(7);
     });
   });
+
+  describe('postSalesService', function () {
+    it('Adicionando venda', async function () {
+      sinon.stub(salesModel, 'postSalesModel').resolves({});
+      await salesService.postSalesService([]);
+    });
+  });
+
+  describe('putSalesService', function () {
+    it('Atualizando venda', async function () {
+      sinon.stub(salesModel, 'putSalesModel').resolves({});
+      await salesService.putSalesService([]);
+    });
+  });
+
   afterEach(() => {
     sinon.restore();
   });

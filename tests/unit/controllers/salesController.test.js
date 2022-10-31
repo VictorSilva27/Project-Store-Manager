@@ -59,6 +59,86 @@ describe('Teste de controllers da rota /sales', function () {
       await salesController.deleteSalesController(req, res);
     });
   });
+
+  describe('postSalesController', function () {
+
+    it('Adicionando vendas', async function () {
+      const req = {
+        body: [
+          {
+            productId: 2,
+            quantity: 122
+          },
+          {
+            productId: 1,
+            quantity: 51
+          }
+        ],
+      };
+      const res = {};
+      res.status = sinon.stub().returns(res);
+      res.json = sinon.stub().returns();
+
+      sinon.stub(salesService, 'postSalesService').resolves(
+        {
+          status: 201,
+          response: { id: 3,
+          itemsSold: [
+            {
+              productId: 2,
+              quantity: 122
+            },
+            {
+              productId: 1,
+              quantity: 51
+            }
+          ]
+        },
+        }
+      );
+      await salesController.postSalesController(req, res);
+    });
+  });
+
+  describe('putSalesController', function () {
+    it('Atulizando vendas vendas', async function () {
+      const req = {
+        body: [
+          {
+            productId: 2,
+            quantity: 12
+          },
+          {
+            productId: 1,
+            quantity: 5
+          }
+        ],
+        params: { id: 1 }
+      };
+      const res = {};
+      res.status = sinon.stub().returns(res);
+      res.json = sinon.stub().returns();
+
+      sinon.stub(salesService, 'putSalesService').resolves(
+        {
+          status: 201,
+          response: { saleId: 1,
+            itemsUpdated: [
+            {
+              productId: 2,
+              quantity: 122
+            },
+            {
+              productId: 1,
+              quantity: 51
+            }
+          ]
+        },
+        }
+      );
+      await salesController.putSalesController(req, res);
+    });
+  });
   afterEach(() => {
     sinon.restore();
   });

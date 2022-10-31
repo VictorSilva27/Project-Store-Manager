@@ -18,8 +18,20 @@ const deleteSalesService = async (idSale) => {
   return { status: 204 };
 };
 
+const postSalesService = async (arraySales) => {
+  const result = await salesModel.postSalesModel(arraySales);
+  return { status: 201, response: result };
+};
+
+const putSalesService = async (arraySales, saleId) => {
+  const result = await salesModel.putSalesModel(arraySales, saleId);
+  return { status: 200, response: result };
+};
+
 module.exports = {
   getAllSalesService,
   getByIdSalesService,
   deleteSalesService,
+  postSalesService,
+  putSalesService,
 };
