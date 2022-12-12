@@ -1,13 +1,13 @@
-# Projeto Store Manager
+# Store Manager
 
-Nesse projeto pude aprender mais sobre as rotas de um Api, a como manipular suas queries e inserts, foi um bom aprendizado para minhas HardSkills, passei por bastante desafio nesse projeto, mas consegui meus 100% totais. Com ajuda do Sinon e Chai, trabalhei bastante com tests, onde obtive 100% de cobertura das ``` models ```, ``` services ``` e ```controllers```.
+Nesse projeto pude aprender mais sobre as rotas de um API, a como manipular suas queries e inserts, foi um bom aprendizado para minhas HardSkills, passei por bastante desafio nesse projeto, mas consegui meus 100% totais. Com ajuda do Sinon e Chai, trabalhei bastante com tests, onde obtive 100% de cobertura das ``` models ```, ``` services ``` e ```controllers```.
 
-### 🔰Como iniciar o projeto na sua máquina🔰
+### Como iniciar o projeto na sua máquina 💻
 
-- ``` git clone git@github.com:VictorSilva27/Project-Store-Manager.git ``` (Clonar o repositório no local)
-- ``` cd Project-Store-Manager ``` (Entrar no repositório clonado)
+- ``` git clone git@github.com:VictorSilva27/Store-Manager.git ``` (Clonar o repositório no local)
+- ``` cd Store-Manager ``` (Entrar no repositório clonado)
 
-### 🔰Rodando com Docker🔰
+### Rodando com Docker 🐋
 - ``` docker-compose up -d ``` (Instalando as images do NodeJs e MySql)
 
 Em caso de Erro de funcionamendo de Porta, altere as linhas das ports no arquivo ``` docker-compose.yml ```
@@ -17,7 +17,7 @@ Em caso de Erro de funcionamendo de Porta, altere as linhas das ports no arquivo
 
 No seu terminal deve estar aparecendo algo como ``` Escutando na porta 3000 ```
 
-### 🔰Criando e populando o banco de dados🔰
+### Criando e populando o banco de dados 🏦🎲
 
 - ``` npm run migration ``` (Criando as tabelas e o banco)
 - ``` npm run seed ``` (Populando o banco com os dados)
@@ -29,11 +29,11 @@ Ou
 
 - ``` http://localhost:3000/sales ```
 
-### 🔰Rodar os teste🔰
+### Como rodar os teste 🧪
 
 - ``` npm run test:mocha ```
 
 ![Cobertura de Test](Test-Coverage-Store.png)
 
-### 🔰Nota do Projeto🔰
+### Nota do Projeto ⭐⭐⭐⭐⭐
 ![Nota do Projeto Store Manager](storeManager.png)
