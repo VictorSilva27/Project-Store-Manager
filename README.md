@@ -1,4 +1,4 @@
-# Store Manager
+# Store Manager 👨‍💼 💼
 
 Nesse projeto pude aprender mais sobre as rotas de um API, a como manipular suas queries e inserts, foi um bom aprendizado para minhas HardSkills, passei por bastante desafio nesse projeto, mas consegui meus 100% totais. Com ajuda do Sinon e Chai, trabalhei bastante com tests, onde obtive 100% de cobertura das ``` models ```, ``` services ``` e ```controllers```.
 
